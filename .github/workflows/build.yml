@@ -99,7 +99,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.9', '3.10', '3.11', '3.12']
         variant:
           - {os: windows-2022, arch: x64, config: RelWithDebInfo, py-arch: x64}
         #   - {os: windows-2022, arch: arm64, config: RelWithDebInfo, py-arch: win32-arm64} # Supported >= 3.11 (see https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json)
@@ -176,7 +176,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.9', '3.10', '3.11', '3.12']
         variant:
           # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
           - {os: ubuntu-22.04, config: RelWithDebInfo, arch: x64}
