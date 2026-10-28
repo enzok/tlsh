@@ -199,6 +199,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tlsh-python-${{ matrix.python-version }}-${{ matrix.variant.os }}-${{ matrix.variant.arch }}
-          path: .
+          path: dist   # gh-action-pypi-publish uploads dist/* by default
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
