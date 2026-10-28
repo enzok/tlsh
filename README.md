@@ -3,6 +3,10 @@
 [![Build](https://github.com/calladoum-elastic/tlsh/actions/workflows/build.yml/badge.svg)](https://github.com/calladoum-elastic/tlsh/actions/workflows/build.yml)
 [![Test](https://github.com/calladoum-elastic/tlsh/actions/workflows/test.yml/badge.svg)](https://github.com/calladoum-elastic/tlsh/actions/workflows/test.yml)
 
+> Fork of [calladoum-elastic/tlsh](https://github.com/calladoum-elastic/tlsh), published on PyPI as
+> `tlsh-python-ng`. It builds the binding with nanobind's `STABLE_ABI`, so the `cp312-abi3` wheel
+> actually loads on Python 3.12 and later (the `tlsh-python` 0.1.0 wheel only loads on 3.12).
+
 ## Build
 
 ### Build & Install the C++ library

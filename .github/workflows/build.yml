@@ -24,7 +24,6 @@ jobs:
           - {os: windows-2022,   arch: arm64,    config: RelWithDebInfo}
           - {os: ubuntu-22.04,   arch: x64,      config: RelWithDebInfo}
           - {os: ubuntu-24.04,   arch: x64,      config: RelWithDebInfo}
-          - {os: macos-13,       arch: x64,      config: Release}
 
     runs-on: ${{ matrix.variants.os }}
 
@@ -105,7 +104,6 @@ jobs:
           - {os: windows-2022, arch: x64, config: RelWithDebInfo, py-arch: x64}
         #   - {os: windows-2022, arch: arm64, config: RelWithDebInfo, py-arch: win32-arm64} # Supported >= 3.11 (see https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json)
           - {os: ubuntu-22.04, arch: x64, config: RelWithDebInfo, py-arch: x64}
-          - {os: macos-13, arch: x64, config: Release, py-arch: x64}
     runs-on: ${{ matrix.variant.os }}
     name: python${{ matrix.python-version }} / ${{ matrix.variant.os }} / ${{ matrix.python-version }} / ${{ matrix.variant.config }}
     env:
@@ -154,7 +152,7 @@ jobs:
     - name: Build wheels (Linux)
       if: matrix.variant.os == 'ubuntu-22.04' && matrix.python-version == '3.12'
       run: |
-        python -m pip uninstall --quiet --yes tlsh-python
+        python -m pip uninstall --quiet --yes tlsh-python-ng
         rm -fr -- build/cp312-*
         python -m pip install cibuildwheel==2.20.0
         python -m cibuildwheel --output-dir wheelhouse
@@ -171,7 +169,7 @@ jobs:
         retention-days: 1
         name: tlsh-python-${{ matrix.python-version }}-${{ matrix.variant.os }}-${{ matrix.variant.arch }}
         path: |
-          wheelhouse/tlsh_python-*.whl
+          wheelhouse/tlsh_python_ng-*.whl
 
   publish:
     needs: bindings
@@ -181,7 +179,6 @@ jobs:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
         variant:
           # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
-          - {os: macos-13,     config: Release,        arch: x64}
           - {os: ubuntu-22.04, config: RelWithDebInfo, arch: x64}
           - {os: windows-2022, config: RelWithDebInfo, arch: x64}
     runs-on: ubuntu-latest

@@ -15,7 +15,7 @@ using namespace nb::literals;
 NB_MODULE(_tlsh, m)
 {
     m.doc()               = "The native `tlsh` module";
-    m.attr("__version__") = "0.1.0";
+    m.attr("__version__") = "0.1.1";
     nb::class_<Tlsh>(m, "Tlsh", "Class Tlsh")
         .def(nb::init<>())
         .def("reset", &Tlsh::reset)

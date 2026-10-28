@@ -22,7 +22,7 @@ list(APPEND CMAKE_PREFIX_PATH "${NB_DIR}")
 find_package(nanobind CONFIG REQUIRED)
 
 nanobind_add_module(
-    _tlsh NB_STATIC
+    _tlsh NB_STATIC STABLE_ABI
     ./src/tlsh.cpp
 )
 
